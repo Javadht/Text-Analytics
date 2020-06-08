@@ -1,5 +1,6 @@
 import re
 import random
+
 ## Reading Dataset
 pos = open("pos.txt", 'r')
 postext = pos.read()
@@ -7,6 +8,7 @@ neg = open("neg.txt", 'r')
 negtext = neg.read()
 tx = postext + negtext
 text = tx.lower()
+
 ## Importing prepared stopwords in order to change the raw data
 swopen = open("stopwords_en.txt", "r")
 swtext = swopen.read()
@@ -17,13 +19,12 @@ stop_words = sw.split()
 without_special_char = re.sub('[^\n\'A-Za-z0-9]+', ' ', text)
 splitted_text = without_special_char.split("\n")
 
-
-
 ## Tokenization with stopwords
 tokenized = []
 for i in splitted_text:
     tokenized += [i.split()]
-## Making a copy for randomization
+
+## Preparing a copy for randomization
 t = tokenized[:]
 random.shuffle(t)
 
@@ -33,25 +34,17 @@ for line in t:
     t2 = [j for j in line if j not in stop_words]
     tokenized_without_sw.append(t2)
 
-
-# print(len(tokenized_without_sw))
-# # print(tokenized)
 ## Splitting tokenized corpus into 3 different parts; Train, Validation, Test.
-
 training = t[:int(len(t)*0.8)]
 validation = t[int(len(t)*0.8):int(len(t)*0.9)]
 testing = t[int(len(t)*0.9):]
 
-# random.shuffle(tokenized_without_sw)
-## Splitting tokenized corpus without stopwords into 3 different parts; Train, Validation, Test.
 
+## Splitting tokenized corpus without stopwords into 3 different parts; Train, Validation, Test.
 training_without_sw = tokenized_without_sw[:int(len(tokenized_without_sw)*0.8)]
 validation_without_sw = tokenized_without_sw[int(len(tokenized_without_sw)*0.8):int(len(tokenized_without_sw)*0.9)]
 testing_without_sw = tokenized_without_sw[int(len(tokenized_without_sw)*0.9):]
 
-# print(len(training))
-# print(validation)
-# print(testing)
 ## Making CSV of each file
 output = "\n".join(str(e) for e in tokenized)
 with open('output.csv', 'w', newline='') as f:
