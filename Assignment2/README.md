@@ -1,6 +1,6 @@
 # msci-text-analytics-s20
 ## Assignemnt2
-### Here is a brief report of results
+### result Report
 In the following table you can see Accuracy Scores, from different built models:
 Containing Stopwords  | Without Stopwords
 ------------- | -------------
@@ -12,6 +12,9 @@ Here are question asnwers:
 
 1. Training without stopwords is working better here. 
 I believe reducing words caused lack of information needed to develop a good training model.
-especially in positive and negative recognition, there are stopwords which help model to build better estimation.
-In addition, comments are written informally, which has provided sentences that can not be recognized easily if we remove stopwords.
-People try to convey their messages in the fastest way, therefor, removing words from already brief written senteces doesn't work.
+In positive and negative comment recognition, there are stopwords which may help model to build better estimation.
+In addition, comments are written informally, which is composed of sentences that can not be recognized easily if we remove stopwords.
+People try to convey their messages in the fastest way, therefor, removing words from already brief written senteces is not a good idea.
+
+2. Training in Bigram+Unigram is better: that's because model can understand conditional probabilities in different combinations both individually and together. 
+it offers not only the power of two words sitting next to each other, but also considers each word individually, which recovers some combinations that may have conflict when two words are considered together. Another point is that, verbs and 
