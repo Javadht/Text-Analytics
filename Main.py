@@ -19,19 +19,25 @@ stop_words = sw.split()
 without_special_char = re.sub('[^\n\'A-Za-z0-9]+', ' ', text)
 splitted_text = without_special_char.split("\n")
 
+## Making label for each row
+labelized_text = list(zip(splitted_text, [1]*len(postext.split("\n")) + [0]*len(negtext.split("\n"))))
+
+## Making a copy for randomization
+t = labelized_text[:]
+random.shuffle(t)
+
 ## Tokenization with stopwords
 tokenized = []
-for i in splitted_text:
-    tokenized += [i.split()]
+label = []
+for i in t:
+    tokenized += [i[0].split()]
+    label += [i[1]]
 
 ## Tokenization without stopwords
 tokenized_sw = []
 for line in tokenized:
     t2 = [j for j in line if j not in stop_words]
     tokenized_sw.append(t2)
-## Making a copy for randomization
-t = tokenized[:]
-random.shuffle(t)
 
 ## Tokenization without stopwords for randomized dataset
 tokenized_without_sw = []
@@ -40,14 +46,14 @@ for line in t:
     tokenized_without_sw.append(t2)
 
 ## Splitting tokenized corpus into 3 different parts; Train, Validation, Test.
-training = t[:int(len(t)*0.8)]
-validation = t[int(len(t)*0.8):int(len(t)*0.9)]
-testing = t[int(len(t)*0.9):]
+training = tokenized[:int(len(tokenized)*0.8)]
+validation = tokenized[int(len(tokenized)*0.8):int(len(tokenized)*0.9)]
+testing = tokenized[int(len(tokenized)*0.9):]
 
 ## Splitting tokenized corpus without stopwords into 3 different parts; Train, Validation, Test.
-training_without_sw = tokenized_without_sw[:int(len(tokenized_without_sw)*0.8)]
-validation_without_sw = tokenized_without_sw[int(len(tokenized_without_sw)*0.8):int(len(tokenized_without_sw)*0.9)]
-testing_without_sw = tokenized_without_sw[int(len(tokenized_without_sw)*0.9):]
+training_without_sw = tokenized_sw[:int(len(tokenized_sw)*0.8)]
+validation_without_sw = tokenized_sw[int(len(tokenized_sw)*0.8):int(len(tokenized_sw)*0.9)]
+testing_without_sw = tokenized_sw[int(len(tokenized_sw)*0.9):]
 
 ## Making CSV of each file
 output = "\n".join(str(e) for e in tokenized)
@@ -74,3 +80,6 @@ with open('test.csv', 'w', newline='') as f:
 test_sw = "\n".join(str(e) for e in testing_without_sw)
 with open('test_sw.csv', 'w', newline='') as f:
     f.write(test_sw)
+labels = "\n".join(str(e) for e in label)
+with open('label.csv', 'w', newline='') as f:
+    f.write(labels)
