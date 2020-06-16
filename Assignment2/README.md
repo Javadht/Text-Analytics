@@ -14,7 +14,9 @@ Bigram + Unigram for Test Set: Accuracy Score is  0.805977425282184
 Containing Stopwords  | Without Stopwords
 ------------- | -------------
 Unigram: 0.8095898801264985  | Unigram: 0.8005024937188285 
-Content Cell  | Content Cell
+Bigram: 0.8236147048161898  | Bigram: 0.7269159135510807
+Bigram + Unigram: 0.8342645716928538  | Bigram + Unigram: 0.805977425282184
+
 Here are question asnwers:
 
 1. Training without stopwords is working better here. 
