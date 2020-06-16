@@ -13,4 +13,5 @@ Here are question asnwers:
 1. Training without stopwords is working better here. 
 I believe reducing words caused lack of information needed to develop a good training model.
 especially in positive and negative recognition, there are stopwords which help model to build better estimation.
-anIn addition, comments are written very informally, which has provided sentences that can not be recognized easily if we remove stopwords.
+In addition, comments are written informally, which has provided sentences that can not be recognized easily if we remove stopwords.
+People try to convey their messages in the fastest way, therefor, removing words from already brief written senteces doesn't work.
