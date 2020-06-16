@@ -2,7 +2,6 @@
 According to Originial Dataset which contains stopwords:
 
 Unigram for Test Set: Accuracy Score is  0.8095898801264985
-
 Bigram for Test Set: Accuracy Score is  0.8236147048161898
 Bigram + Unigram for Test Set: Accuracy Score is  0.8342645716928538
 
