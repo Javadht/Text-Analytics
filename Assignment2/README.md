@@ -1,6 +1,7 @@
 # msci-text-analytics-s20
 ## Assignemnt2
 ### Here is a brief report of results
+In the following table you can see Accuracy Scores, from different built models:
 Containing Stopwords  | Without Stopwords
 ------------- | -------------
 Unigram: 0.8095898801264985  | Unigram: 0.8005024937188285 
