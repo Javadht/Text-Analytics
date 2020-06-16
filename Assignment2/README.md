@@ -1,6 +1,6 @@
 # msci-text-analytics-s20
 ## Assignemnt2
-### result Report
+### Result Report
 In the following table you can see Accuracy Scores, from different built models:
 Containing Stopwords  | Without Stopwords
 ------------- | -------------
