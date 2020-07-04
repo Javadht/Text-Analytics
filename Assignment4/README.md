@@ -19,7 +19,7 @@ The reason is the following:
 
 
 
-Note: in running inference you should give two command line arguments as below:
+### IMPORTANT Note: in running inference you should give two command line arguments as below:
 Terminal ----> python inference.py ./filename.txt 'relu'
 
 
